@@ -28,3 +28,11 @@ Create URL shortener system thinking of below
 - GET /:shorten_url -> redirect to long URL
 - GET /v1/urls/:shorten_url -> return long URL
 - POST /v1/shorten -> shorten URL
+
+# What i've learnt
+
+**Http code for redirect 301 vs 302**
+
+**How to generate unique id**
+
+**Controller and Use cases**
