@@ -6,7 +6,7 @@ import { UrlService } from './url/url.service';
 export class AppController {
   constructor(private urlService: UrlService) {}
 
-  @HttpCode(301)
+  @HttpCode(302)
   @Get(':shortUrl')
   redirectToLongUrl(
     @Param('shortUrl') shortUrl: string,
