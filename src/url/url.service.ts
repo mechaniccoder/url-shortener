@@ -16,12 +16,6 @@ export class UrlService {
     const buffer = Buffer.from(id);
     const shortUrl = bs62.encode(buffer);
 
-    console.log({
-      id,
-      longUrl,
-      shortUrl,
-    });
-
     this.urlRepository.save({
       shortUrl,
       longUrl,
@@ -31,5 +25,19 @@ export class UrlService {
       shortUrl,
       longUrl,
     };
+  }
+
+  public getLongUrl(shortUrl: string) {
+    try {
+      const url = this.urlRepository.getOne(shortUrl);
+
+      if (url === undefined) {
+        throw new Error('Url not found');
+      }
+
+      return url;
+    } catch (err) {
+      throw err;
+    }
   }
 }

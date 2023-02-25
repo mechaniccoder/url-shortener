@@ -8,5 +8,6 @@ import { UrlService } from './url.service';
   imports: [TicketModule],
   controllers: [UrlController],
   providers: [UrlService, UrlRepository],
+  exports: [UrlService],
 })
 export class UrlModule {}
