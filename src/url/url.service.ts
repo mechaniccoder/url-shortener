@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import * as baseX from 'base-x';
 import { ShortenUrlDto } from './dto/shorten-url.dto';
 import { UrlRepository } from './url.repository';
@@ -8,6 +8,8 @@ const bs62 = baseX(BASE62);
 
 @Injectable()
 export class UrlService {
+  private readonly logger = new Logger(UrlService.name);
+
   constructor(private urlRepository: UrlRepository) {}
 
   public shortenUrl(id: string, shortenUrlDto: ShortenUrlDto) {
@@ -20,6 +22,8 @@ export class UrlService {
       shortUrl,
       longUrl,
     });
+
+    this.logger.log(`Shortened ${longUrl} to ${shortUrl}`);
 
     return {
       shortUrl,
